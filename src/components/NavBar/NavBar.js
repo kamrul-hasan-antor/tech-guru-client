@@ -2,34 +2,35 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import { NavLink } from "react-router-dom";
 const NavBar = () => {
   return (
     <Navbar bg="light" expand="lg">
       <Container>
-        <Navbar.Brand href="#home" className="fs-3 fw-bold text-success">
+        <NavLink to="/" className="fs-2 fw-bold text-success nav-link">
           TECH GURU
-        </Navbar.Brand>
+        </NavLink>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="w-100 d-md-flex justify-content-end ">
-            <Nav.Link href="#home" className="pe-3 text-success ">
+            <NavLink to="/" className="pe-3 text-success nav-link">
               Home
-            </Nav.Link>
-            <Nav.Link href="#link" className="pe-3 text-success ">
+            </NavLink>
+            <NavLink to="/courses" className="pe-3 text-success nav-link">
               Courses
-            </Nav.Link>
-            <Nav.Link href="#link" className="pe-3 text-success ">
+            </NavLink>
+            <NavLink to="#link" className="pe-3 text-success nav-link">
               FAQ
-            </Nav.Link>
-            <Nav.Link href="#link" className="pe-3 text-success ">
+            </NavLink>
+            <NavLink to="#link" className="pe-3 text-success nav-link">
               Blog
-            </Nav.Link>
-            <Nav.Link href="#link" className="pe-3 text-success ">
+            </NavLink>
+            <NavLink to="#link" className="pe-3 text-success nav-link">
               Login
-            </Nav.Link>
-            <Nav.Link href="#link" className="pe-3 text-success ">
+            </NavLink>
+            <NavLink to="#link" className="pe-3 text-success nav-link">
               Register
-            </Nav.Link>
+            </NavLink>
           </Nav>
         </Navbar.Collapse>
       </Container>

@@ -1,13 +1,31 @@
 import "./App.css";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Main from "./components/Main/Main";
 import Header from "./components/Header/Header";
-import NavBar from "./components/NavBar/NavBar";
+import Courses from "./components/Courses/Courses";
 
 function App() {
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Main></Main>,
+      children: [
+        {
+          path: "/",
+          element: <Header></Header>,
+        },
+        {
+          path: "/courses",
+          element: <Courses></Courses>,
+        },
+      ],
+    },
+  ]);
+
   return (
-    <div>
-      <NavBar></NavBar>
-      <Header></Header>
-    </div>
+    <>
+      <RouterProvider router={router} />
+    </>
   );
 }
 

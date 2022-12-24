@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import logo from "../../img/banner.png";
 const Header = () => {
   return (
@@ -15,7 +16,9 @@ const Header = () => {
               Take your learning to the next level. Our instructors will share
               their knowledge to people around the world.
             </p>
-            <button className="btn btn-success">View All Courses</button>
+            <Link to="/courses">
+              <button className="btn btn-success">View All Courses</button>
+            </Link>
           </div>
         </div>
         <div className="col-md-6 col-12">
