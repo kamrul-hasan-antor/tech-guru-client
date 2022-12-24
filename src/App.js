@@ -5,6 +5,7 @@ import Header from "./components/Header/Header";
 import Courses from "./components/Courses/Courses";
 import CourseDetails from "./components/CourseDetails/CourseDetails";
 import Blogs from "./components/Blogs/Blogs";
+import FAQ from "./components/FAQ/FAQ";
 
 function App() {
   const router = createBrowserRouter([
@@ -37,6 +38,10 @@ function App() {
         {
           path: "/blogs",
           element: <Blogs></Blogs>,
+        },
+        {
+          path: "/faq",
+          element: <FAQ></FAQ>,
         },
       ],
     },

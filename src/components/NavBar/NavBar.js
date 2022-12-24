@@ -19,7 +19,7 @@ const NavBar = () => {
             <NavLink to="/courses" className="pe-3 text-success nav-link">
               Courses
             </NavLink>
-            <NavLink to="#link" className="pe-3 text-success nav-link">
+            <NavLink to="faq" className="pe-3 text-success nav-link">
               FAQ
             </NavLink>
             <NavLink to="/blogs" className="pe-3 text-success nav-link">
