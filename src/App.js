@@ -4,6 +4,7 @@ import Main from "./components/Main/Main";
 import Header from "./components/Header/Header";
 import Courses from "./components/Courses/Courses";
 import CourseDetails from "./components/CourseDetails/CourseDetails";
+import Blogs from "./components/Blogs/Blogs";
 
 function App() {
   const router = createBrowserRouter([
@@ -32,6 +33,10 @@ function App() {
           element: <CourseDetails></CourseDetails>,
           loader: ({ params }) =>
             fetch(`http://localhost:5000/category/${params.id}`),
+        },
+        {
+          path: "/blogs",
+          element: <Blogs></Blogs>,
         },
       ],
     },

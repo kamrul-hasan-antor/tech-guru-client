@@ -22,8 +22,8 @@ const NavBar = () => {
             <NavLink to="#link" className="pe-3 text-success nav-link">
               FAQ
             </NavLink>
-            <NavLink to="#link" className="pe-3 text-success nav-link">
-              Blog
+            <NavLink to="/blogs" className="pe-3 text-success nav-link">
+              Blogs
             </NavLink>
             <NavLink to="#link" className="pe-3 text-success nav-link">
               Login
