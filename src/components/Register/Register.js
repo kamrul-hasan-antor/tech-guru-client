@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import GoogleAuth from "../Authentication/GoogleAuth";
 
 const Register = () => {
   return (
@@ -34,6 +35,7 @@ const Register = () => {
             Submit
           </button>
         </form>
+        <GoogleAuth></GoogleAuth>
       </div>
     </div>
   );

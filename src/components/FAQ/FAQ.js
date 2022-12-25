@@ -1,5 +1,4 @@
 import React from "react";
-
 const FAQ = () => {
   return (
     <div class="container mt-3">
