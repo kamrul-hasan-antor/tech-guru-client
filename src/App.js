@@ -6,6 +6,8 @@ import Courses from "./components/Courses/Courses";
 import CourseDetails from "./components/CourseDetails/CourseDetails";
 import Blogs from "./components/Blogs/Blogs";
 import FAQ from "./components/FAQ/FAQ";
+import Login from "./components/Login/Login";
+import Register from "./components/Register/Register";
 
 function App() {
   const router = createBrowserRouter([
@@ -42,6 +44,14 @@ function App() {
         {
           path: "/faq",
           element: <FAQ></FAQ>,
+        },
+        {
+          path: "/login",
+          element: <Login></Login>,
+        },
+        {
+          path: "/register",
+          element: <Register></Register>,
         },
       ],
     },
