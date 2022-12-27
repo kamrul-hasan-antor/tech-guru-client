@@ -1,12 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import GoogleAuth from "../Authentication/GoogleAuth";
 
 const Register = () => {
   return (
     <div className="container mx-auto">
       <div className="row mt-3">
         <form className="col-md-6 mx-auto border p-3">
+          <div className="mb-3">
+            <label for="exampleInputFullName" className="form-label">
+              Full name
+            </label>
+            <input
+              type="email"
+              className="form-control"
+              id="exampleInputFullName"
+            />
+          </div>
           <div className="mb-3">
             <label for="exampleInputEmail1" className="form-label">
               Email address
@@ -17,6 +26,12 @@ const Register = () => {
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
             />
+          </div>
+          <div className="mb-3">
+            <label for="exampleInputImg" className="form-label">
+              Image URL
+            </label>
+            <input type="text" className="form-control" id="exampleInputImg" />
           </div>
           <div className="mb-3">
             <label for="exampleInputPassword1" className="form-label">
@@ -35,7 +50,6 @@ const Register = () => {
             Submit
           </button>
         </form>
-        <GoogleAuth></GoogleAuth>
       </div>
     </div>
   );
