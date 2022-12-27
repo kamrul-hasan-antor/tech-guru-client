@@ -2,10 +2,10 @@ import React from "react";
 
 const Blogs = () => {
   return (
-    <div class="container mt-3">
-      <div class="row g-2">
-        <div class="col-md-6 col-12">
-          <div class="p-3 border bg-light blog">
+    <div className="container mt-3">
+      <div className="row g-2">
+        <div className="col-md-6 col-12">
+          <div className="p-3 border bg-light blog">
             <h5>What is Cors</h5>
             <p>
               <span className="fw-semibold">Ans: </span>Cross-Origin Resource
@@ -15,8 +15,8 @@ const Blogs = () => {
             </p>
           </div>
         </div>
-        <div class="col-md-6 col-12">
-          <div class="p-3 border bg-light blog">
+        <div className="col-md-6 col-12">
+          <div className="p-3 border bg-light blog">
             <h5>
               Why are you using firebase? What other options do you have to
               implement authentication?
@@ -32,8 +32,8 @@ const Blogs = () => {
             </p>
           </div>
         </div>
-        <div class="col-md-6 col-12">
-          <div class="p-3 border bg-light blog">
+        <div className="col-md-6 col-12">
+          <div className="p-3 border bg-light blog">
             <h5>How does the private route work?</h5>
             <p>
               <span className="fw-semibold">Ans: </span>The private route
@@ -45,8 +45,8 @@ const Blogs = () => {
             </p>
           </div>
         </div>
-        <div class="col-md-6 col-12">
-          <div class="p-3 border bg-light blog">
+        <div className="col-md-6 col-12">
+          <div className="p-3 border bg-light blog">
             <h5>What is Node? How does Node work?</h5>
             <p>
               <span className="fw-semibold">Ans: </span>A node is a basic unit

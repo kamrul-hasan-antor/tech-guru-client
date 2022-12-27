@@ -15,6 +15,7 @@ const SideBar = () => {
       {categories.map((category) => {
         return (
           <Link
+            key={category.id}
             to={`/category/${category.id}`}
             className="list-group-item list-group-item-action"
             aria-current="true"

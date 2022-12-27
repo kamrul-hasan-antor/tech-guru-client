@@ -43,7 +43,9 @@ const Login = () => {
               Log In
             </button>
           </form>
-          <p className="text-center mt-3">or use one of these options</p>
+          <p className="text-center mt-3">
+            ______ or use one of these options ______
+          </p>
           <div className="d-flex justify-content-center">
             <GoogleAuth></GoogleAuth>
             <GitHubAuth></GitHubAuth>

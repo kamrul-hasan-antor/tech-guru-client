@@ -4,3 +4,6 @@
 svg {
   cursor: pointer;
 }
+svg:hover {
+  background-color: rgb(247, 247, 247);
+}

@@ -1,6 +1,6 @@
 import { getAuth, GithubAuthProvider, signInWithPopup } from "firebase/auth";
 import React from "react";
-import app from "../../firebase/firebase.init";
+import app from "../../firebase/firebase.config";
 
 const auth = getAuth(app);
 
