@@ -7,3 +7,6 @@ svg {
 svg:hover {
   background-color: rgb(247, 247, 247);
 }
+.user_logo {
+  width: 50px;
+}

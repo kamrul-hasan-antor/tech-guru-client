@@ -6,7 +6,13 @@ import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 import { AiOutlineUser } from "react-icons/ai";
 const NavBar = () => {
-  const { user } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleSignOut = () => {
+    logOut()
+      .then(() => {})
+      .catch((err) => console.log(err));
+  };
 
   return (
     <Navbar bg="light" expand="lg">
@@ -29,24 +35,38 @@ const NavBar = () => {
             <NavLink to="/blogs" className="pe-3 text-success nav-link">
               Blogs
             </NavLink>
-            <NavLink to="/login" className="pe-3 text-success nav-link">
-              Login
-            </NavLink>
-            <NavLink to="/register" className="pe-3 text-success nav-link">
-              Register
-            </NavLink>
+            {user ? (
+              <NavLink
+                to="/login"
+                onClick={handleSignOut}
+                className="pe-3 text-success nav-link"
+              >
+                Logout
+              </NavLink>
+            ) : (
+              <NavLink to="/login" className="pe-3 text-success nav-link">
+                Login
+              </NavLink>
+            )}
+            {user ? (
+              ""
+            ) : (
+              <NavLink to="/register" className="pe-3 text-success nav-link">
+                Register
+              </NavLink>
+            )}
             <NavLink className="pe-2 fw-semibold text-success nav-link">
-              {user?.displayName}
+              {user ? "Hi," + user.displayName : ""}
             </NavLink>
             <NavLink className="pe-1 nav-link">
-              {user.photoURL ? (
+              {user ? (
                 <img
-                  className="w-50 rounded-circle"
+                  className="user_logo rounded-circle"
                   src={user.photoURL}
                   alt=""
                 />
               ) : (
-                <AiOutlineUser></AiOutlineUser>
+                <AiOutlineUser size={30}></AiOutlineUser>
               )}
             </NavLink>
           </Nav>

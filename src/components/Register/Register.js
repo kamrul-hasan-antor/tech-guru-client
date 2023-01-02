@@ -1,11 +1,37 @@
-import React from "react";
+import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
+import app from "../../firebase/firebase.config";
 
+const auth = getAuth(app);
 const Register = () => {
+  const { createUser } = useContext(AuthContext);
+  // console.log(createUser);
+  const handleRegisterUser = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const fullName = form.fullName.value;
+    // const photoURL = form.photoURL.value;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   return (
     <div className="container mx-auto">
       <div className="row mt-3">
-        <form className="col-md-6 mx-auto border p-3">
+        <form
+          onSubmit={handleRegisterUser}
+          className="col-md-6 mx-auto border p-3"
+        >
           <div className="mb-3">
             <label
               htmlFor="exampleInputFullName"
@@ -14,7 +40,8 @@ const Register = () => {
               Full name
             </label>
             <input
-              type="email"
+              name="fullName"
+              type="text"
               className="form-control"
               id="exampleInputFullName"
             />
@@ -27,18 +54,24 @@ const Register = () => {
               Email address
             </label>
             <input
+              name="email"
               type="email"
               className="form-control"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
             />
           </div>
-          <div className="mb-3">
+          {/* <div className="mb-3">
             <label htmlFor="exampleInputImg" className="form-label fw-semibold">
               Image URL
             </label>
-            <input type="text" className="form-control" id="exampleInputImg" />
-          </div>
+            <input
+              name="photoURL"
+              type="text"
+              className="form-control"
+              id="exampleInputImg"
+            />
+          </div> */}
           <div className="mb-3">
             <label
               htmlFor="exampleInputPassword1"
@@ -47,6 +80,7 @@ const Register = () => {
               Password
             </label>
             <input
+              name="password"
               type="password"
               className="form-control"
               id="exampleInputPassword1"
@@ -55,9 +89,11 @@ const Register = () => {
           <div className="mb-3 text-center">
             Already have an account? <Link to="/login">Login Now</Link>
           </div>
-          <button type="submit" className="btn btn-primary w-100">
-            Register
-          </button>
+          <input
+            type="submit"
+            className="btn btn-primary w-100"
+            value="Register Now"
+          />
         </form>
       </div>
     </div>

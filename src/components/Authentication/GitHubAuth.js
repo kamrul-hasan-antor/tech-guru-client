@@ -1,14 +1,13 @@
-import { getAuth, GithubAuthProvider, signInWithPopup } from "firebase/auth";
-import React from "react";
-import app from "../../firebase/firebase.config";
-
-const auth = getAuth(app);
+import { GithubAuthProvider } from "firebase/auth";
+import React, { useContext } from "react";
+import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 
 const GitHubAuth = () => {
+  const { githubProvider } = useContext(AuthContext);
   const provider = new GithubAuthProvider();
 
   const handleGithubSignIn = () => {
-    signInWithPopup(auth, provider)
+    githubProvider(provider)
       .then((res) => {
         const user = res.user;
         console.log(user);
