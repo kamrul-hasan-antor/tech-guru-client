@@ -22,8 +22,8 @@ const Courses = () => {
             {courses.map((course) => {
               const { _id, name, picture, about, price } = course;
               return (
-                <div key={_id} class="col-md-4 col-12">
-                  <div class="p-3 border  bg-light">
+                <div key={_id} className="col-md-4 col-12">
+                  <div className="p-3 border  bg-light">
                     <img className="img-fluid" src={picture} alt="" />
                     <h5>{name}</h5>
                     <p> {about.slice(0, 100)}.... </p>

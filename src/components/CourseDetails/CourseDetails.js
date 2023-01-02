@@ -4,7 +4,6 @@ import { Link, useLoaderData } from "react-router-dom";
 const CourseDetails = () => {
   const data = useLoaderData();
   const { picture, name, duration, about, price, rating, view } = data;
-  console.log(data);
   return (
     <div className=" container pb-5">
       <div className="text-center">
@@ -29,7 +28,7 @@ const CourseDetails = () => {
           <span className="fw-semibold">Views:</span> {view}
         </p>
       </div>
-      <Link type="button" class="btn btn-outline-success">
+      <Link type="button" className="btn btn-outline-success">
         Get premium access
       </Link>
     </div>

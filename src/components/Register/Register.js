@@ -1,25 +1,29 @@
-import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
+import { updateProfile } from "firebase/auth";
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
-import app from "../../firebase/firebase.config";
 
-const auth = getAuth(app);
 const Register = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser, auth } = useContext(AuthContext);
   // console.log(createUser);
   const handleRegisterUser = (e) => {
     e.preventDefault();
     const form = e.target;
     const fullName = form.fullName.value;
-    // const photoURL = form.photoURL.value;
+    const photoURL = form.photoURL.value;
     const email = form.email.value;
     const password = form.password.value;
 
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        const user = userCredential.user;
+    createUser(email, password)
+      .then((res) => {
+        updateProfile(auth.currentUser, {
+          displayName: fullName,
+          photoURL,
+        });
+        const user = res.user;
+
         console.log(user);
+        form.reset();
       })
       .catch((error) => {
         console.log(error);
@@ -61,7 +65,7 @@ const Register = () => {
               aria-describedby="emailHelp"
             />
           </div>
-          {/* <div className="mb-3">
+          <div className="mb-3">
             <label htmlFor="exampleInputImg" className="form-label fw-semibold">
               Image URL
             </label>
@@ -71,7 +75,7 @@ const Register = () => {
               className="form-control"
               id="exampleInputImg"
             />
-          </div> */}
+          </div>
           <div className="mb-3">
             <label
               htmlFor="exampleInputPassword1"
@@ -89,11 +93,10 @@ const Register = () => {
           <div className="mb-3 text-center">
             Already have an account? <Link to="/login">Login Now</Link>
           </div>
-          <input
-            type="submit"
-            className="btn btn-primary w-100"
-            value="Register Now"
-          />
+
+          <button type="submit" className="btn btn-primary w-100">
+            Register Now
+          </button>
         </form>
       </div>
     </div>
