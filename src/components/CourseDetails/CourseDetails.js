@@ -29,7 +29,11 @@ const CourseDetails = () => {
           <span className="fw-semibold">Views:</span> {view}
         </p>
       </div>
-      <Link to={`/checkout`} type="button" className="btn btn-outline-success">
+      <Link
+        to={`/checkout/${_id}`}
+        type="button"
+        className="btn btn-outline-success"
+      >
         Get premium access
       </Link>
     </div>

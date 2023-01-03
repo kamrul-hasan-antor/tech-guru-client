@@ -56,12 +56,14 @@ function App() {
           element: <Register></Register>,
         },
         {
-          path: "/checkout",
+          path: "/checkout/:id",
           element: (
             <PrivateRoute>
               <Checkout></Checkout>
             </PrivateRoute>
           ),
+          loader: ({ params }) =>
+            fetch(`http://localhost:5000/details/${params.id}`),
         },
       ],
     },
