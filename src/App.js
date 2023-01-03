@@ -8,6 +8,8 @@ import Blogs from "./components/Blogs/Blogs";
 import FAQ from "./components/FAQ/FAQ";
 import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+import Checkout from "./components/Checkout/Checkout";
 
 function App() {
   const router = createBrowserRouter([
@@ -52,6 +54,14 @@ function App() {
         {
           path: "/register",
           element: <Register></Register>,
+        },
+        {
+          path: "/checkout",
+          element: (
+            <PrivateRoute>
+              <Checkout></Checkout>
+            </PrivateRoute>
+          ),
         },
       ],
     },

@@ -1,16 +1,21 @@
 import { GithubAuthProvider } from "firebase/auth";
 import React, { useContext } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 
 const GitHubAuth = () => {
   const { githubProvider } = useContext(AuthContext);
   const provider = new GithubAuthProvider();
+  const navigate = useNavigate();
+  const location = useLocation();
+  let from = location.state?.from?.pathname || "/";
 
   const handleGithubSignIn = () => {
     githubProvider(provider)
       .then((res) => {
         const user = res.user;
         console.log(user);
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         console.log(error);

@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 import GitHubAuth from "../Authentication/GitHubAuth";
 import GoogleAuth from "../Authentication/GoogleAuth";
@@ -8,6 +8,10 @@ const Login = () => {
   const { logInUser } = useContext(AuthContext);
 
   const [loginError, setLoginError] = useState("");
+
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -20,10 +24,10 @@ const Login = () => {
         console.log(user);
         form.reset();
         setLoginError("");
+        navigate(from, { replace: true });
       })
       .catch((err) => setLoginError(err.message));
   };
-  console.log(loginError[21]);
   return (
     <div className="container mx-auto">
       <div className="row mt-3">
