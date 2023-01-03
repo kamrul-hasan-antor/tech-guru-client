@@ -1,11 +1,18 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
+import { Modal } from "react-bootstrap";
+import Button from "react-bootstrap/Button";
 import { useLoaderData } from "react-router-dom";
 import ReactToPrint from "react-to-print";
 
 const Checkout = () => {
   const pdfRef = useRef();
   const data = useLoaderData();
-  const { picture, name, duration, about, price, rating, view, _id } = data;
+  const { picture, name, duration, about, price } = data;
+
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   return (
     <div className=" container pb-5">
       <p className="text-center text-success mt-3 fs-5 text-uppercase fw-semibold">
@@ -30,7 +37,9 @@ const Checkout = () => {
         </div>
       </div>
       <div className="d-flex justify-content-between px-3">
-        <button className="btn btn-outline-success">Enroll Now</button>
+        <button onClick={handleShow} className="btn btn-outline-success">
+          Enroll Now
+        </button>
         <ReactToPrint
           trigger={() => (
             <button className="btn btn-outline-success">Download PDF</button>
@@ -38,6 +47,21 @@ const Checkout = () => {
           content={() => pdfRef.current}
         />
       </div>
+      <>
+        <Modal
+          show={show}
+          onHide={handleClose}
+          size="md"
+          aria-labelledby="contained-modal-title-vcenter"
+          centered
+        >
+          <Modal.Header closeButton>
+            <Modal.Title className="text-success">
+              Congratulations!! Successfully Enrolled
+            </Modal.Title>
+          </Modal.Header>
+        </Modal>
+      </>
     </div>
   );
 };
