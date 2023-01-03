@@ -10,6 +10,7 @@ import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import Checkout from "./components/Checkout/Checkout";
+import NotFound from "./components/NotFound/NotFound";
 
 function App() {
   const router = createBrowserRouter([
@@ -64,6 +65,10 @@ function App() {
           ),
           loader: ({ params }) =>
             fetch(`http://localhost:5000/details/${params.id}`),
+        },
+        {
+          path: "*",
+          element: <NotFound></NotFound>,
         },
       ],
     },
