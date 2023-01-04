@@ -31,14 +31,18 @@ function App() {
 
           element: <CourseDetails></CourseDetails>,
           loader: ({ params }) =>
-            fetch(`http://localhost:5000/details/${params.id}`),
+            fetch(
+              `https://tech-guru-server-chi.vercel.app/details/${params.id}`
+            ),
         },
         {
           path: "/category/:id",
 
           element: <CourseDetails></CourseDetails>,
           loader: ({ params }) =>
-            fetch(`http://localhost:5000/category/${params.id}`),
+            fetch(
+              `https://tech-guru-server-chi.vercel.app/category/${params.id}`
+            ),
         },
         {
           path: "/blogs",
@@ -64,7 +68,9 @@ function App() {
             </PrivateRoute>
           ),
           loader: ({ params }) =>
-            fetch(`http://localhost:5000/details/${params.id}`),
+            fetch(
+              `https://tech-guru-server-chi.vercel.app/details/${params.id}`
+            ),
         },
         {
           path: "*",
